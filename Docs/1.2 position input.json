@@ -1,0 +1,43 @@
+{
+  "product_information": {
+    "product_name": "string",
+    "core_functionality": "string",
+    "target_audience": "string",
+    "problems_solved": [
+      "string",
+      "string",
+      "..."
+    ],
+    "key_features": [
+      "string",
+      "string",
+      "..."
+    ],
+    "pricing_model": "string",
+    "pricing_details": "string (optional: e.g., tiers, specific costs)"
+  },
+  "market_report": {
+    "key_competitors": [
+      "string (competitor name or type)",
+      "string",
+      "..."
+    ],
+    "market_trends": [
+      "string",
+      "string",
+      "..."
+    ],
+    "customer_pain_points": [
+      "string",
+      "string",
+      "..."
+    ],
+    "differentiation_opportunities": [
+      "string",
+      "string",
+      "..."
+    ],
+    "market_size_estimate": "string (optional)",
+    "competitive_analysis_summary": "string (optional)"
+  }
+}

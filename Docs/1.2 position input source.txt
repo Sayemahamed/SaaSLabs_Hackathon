@@ -1,0 +1,2 @@
+The product_information section largely originates from User Input, potentially refined or formalized by inputs/outputs from Product agents (like 2.1).
+The market_report section originates directly from the output of the Market Intelligence Agent (1.1)

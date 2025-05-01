@@ -1,0 +1,35 @@
+{
+  "request_id": "syncup_lp_test_01",
+  "page_details": {
+    "url": "https://syncup.com/features",
+    "goal": "Start 14-Day Free Trial",
+    "current_elements": [
+      "Hero Section: Headline ('Collaboration Made Easy'), Sub-headline (Generic benefit statement), Stock photo illustration, CTA Button ('Get Started Free')",
+      "Feature List: 6 features with icons and short descriptions.",
+      "Social Proof: 3 customer logos (small).",
+      "How it Works: 3-step graphic.",
+      "Pricing Snippet: Mention of 'Free Trial Available'.",
+      "Final CTA: Button ('Sign Up Now')"
+    ]
+  },
+  "analytics_data": {
+    "time_period": "Last 30 days",
+    "total_visitors": 15000,
+    "bounce_rate": "75%",
+    "avg_time_on_page": "45s",
+    "conversion_rate_to_trial": "1.8%",
+    "funnel_analysis": [
+      { "step": "Visited Page", "users": 15000 },
+      { "step": "Scrolled Below Hero", "users": 3750 }, // Significant drop-off (75% leave)
+      { "step": "Clicked a Feature Detail", "users": 500 },
+      { "step": "Clicked 'Get Started Free' CTA", "users": 350 },
+      { "step": "Completed Trial Signup", "users": 270 } // 1.8% of initial visitors
+    ],
+    "heatmap_summary": "High click concentration on navigation, minimal clicks on feature descriptions. Significant user drop-off visible below the hero section fold.",
+    "user_feedback_summary": [
+      "Survey Snippet: 'Not clear how this is different from Trello/Asana.'",
+      "Sales Call Note: 'Prospects often ask about specific integrations early on.'"
+    ]
+  },
+  "previous_tests": null // No recent relevant tests run
+}

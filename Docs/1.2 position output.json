@@ -1,0 +1,99 @@
+{
+  "kit_summary": {
+    "overview": "string (Brief summary of the overall positioning and brand strategy)"
+  },
+  "value_proposition": {
+    "statement": "string (The core value proposition statement)",
+    "canvas_summary": {
+      "customer_segment_description": "string (Summary of the target customer profile)",
+      "jobs_to_be_done": ["string", "..."],
+      "pains_relieved": ["string", "..."],
+      "gains_created": ["string", "..."]
+    }
+  },
+  "differentiation": {
+    "strategy_summary": "string (Explanation of the core differentiation approach)",
+    "key_differentiators": [
+      "string (Specific point of difference 1)",
+      "string (Specific point of difference 2)",
+      "..."
+    ]
+  },
+  "brand_identity": {
+    "mission_statement": "string",
+    "company_story": {
+      "narrative": "string (The full company story)",
+      "story_type": "string (e.g., 'origin', 'consumer-focused')"
+    },
+    "brand_voice": {
+      "adjectives_we_are": ["string", "string", "..."],
+      "adjectives_we_are_not": ["string", "string", "..."],
+      "tone_description": "string (Detailed description of the desired brand tone)"
+    }
+  },
+  "marketing_narrative": {
+    "core_message": "string (The central story/message to use in marketing)"
+  },
+  "brand_guidelines": {
+    "logo": {
+      "primary_logo_description": "string",
+      "usage_rules": ["string (Rule 1)", "string (Rule 2)", "..."],
+      "clear_space_requirement": "string"
+    },
+    "color_palette": {
+      "primary_colors": [
+        {"name": "string", "hex_code": "string", "usage": "string"},
+        "..."
+      ],
+      "secondary_colors": [
+        {"name": "string", "hex_code": "string", "usage": "string"},
+        "..."
+      ],
+      "accent_colors": [
+         {"name": "string", "hex_code": "string", "usage": "string"},
+         "..."
+      ],
+       "neutral_colors": [
+         {"name": "string", "hex_code": "string", "usage": "string"},
+         "..."
+      ]
+    },
+    "typography": {
+      "primary_font": {
+        "name": "string",
+        "weights": ["string", "..."],
+        "usage": "string (e.g., Headers, Titles)"
+      },
+      "secondary_font": {
+        "name": "string",
+        "weights": ["string", "..."],
+        "usage": "string (e.g., Body Copy)"
+      },
+      "usage_notes": "string"
+    },
+    "imagery": {
+      "style_description": "string (e.g., 'Lifestyle photography', 'Clean illustrations')",
+      "guidelines": ["string (Guideline 1)", "string (Guideline 2)", "..."]
+    },
+     "iconography": {
+       "style_description": "string (e.g., 'Line icons', 'Solid icons')",
+       "usage_notes": "string"
+     }
+  },
+  "positioning": {
+    "positioning_statement": "string (Optional: A formal positioning statement)",
+    "map_description": "string (Description of the brand's position relative to competitors, perhaps referencing key axes)",
+    "key_axes_identified": ["string (Axis 1, e.g., 'Price vs Quality')", "string (Axis 2, e.g., 'Modern vs Traditional')", "..."]
+  },
+  "copy_guidelines": {
+    "key_principles": [
+      "string (Principle 1, e.g., 'Focus on benefits, not just features')",
+      "string (Principle 2, e.g., 'Use active voice')",
+      "..."
+    ],
+    "tone_application": "string (How to apply the brand tone specifically in written copy)",
+    "words_to_use": ["string", "string", "..."],
+    "words_to_avoid": ["string", "string", "..."],
+    "grammar_style_notes": "string (e.g., 'Use Oxford comma', 'Abbreviate states')"
+  }
+}

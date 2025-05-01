@@ -1,0 +1,30 @@
+[project]
+name = "template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "celery[redis]>=5.5.2",
+    "fastapi[standard]>=0.115.12",
+    "flower>=2.0.1",
+    "ipykernel>=6.29.5",
+    "ipython>=9.2.0",
+    "langchain>=0.3.24",
+    "langchain-google-genai>=2.1.4",
+    "langchain-mcp-adapters>=0.0.9",
+    "langchain-openai>=0.3.14",
+    "langgraph>=0.4.0",
+    "langgraph-checkpoint-postgres>=2.0.21",
+    "langgraph-swarm>=0.0.11",
+    "passlib[bcrypt]>=1.7.4",
+    "pydantic-settings>=2.9.1",
+    "pydentic>=0.0.1.dev3",
+    "pyjwt>=2.10.1",
+    "python-dotenv>=1.1.0",
+    "pytz>=2025.2",
+    "sqlalchemy[asyncio]>=2.0.40",
+    "sqlmodel>=0.0.24",
+    "tavily-python>=0.7.0",
+]

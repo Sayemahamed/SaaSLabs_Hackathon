@@ -1,0 +1,60 @@
+direction right
+Title GrowthPilot AI Workflow 
+
+User [shape: rectangle, icon: 1password,color:blue]
+Interactor-Agent[shape:circle,color:blue]
+Task-Pool[shape:cylinder,color:green]
+
+Interactor-Agent[shape:circle]
+
+CMO[shape:circle,color:red]
+HeadOfProduct[shape:circle,color: purple]
+CTO[shape:circle,color: yellow]
+COO[shape:circle,color: red]
+Fundraising[shape:circle,color: black]
+Swarm {
+Market Intelligence Agent[shape:oval,color:red]
+Positioning & Brand Strategy Agent[shape:oval,color:red]
+Acquisition Strategy Agent[shape:oval,color:red]
+Conversion & Onboarding Agent[shape:oval,color:red]
+Content & Ad Execution Agent[shape:oval,color:red]
+Growth Performance & Analytics Agent[shape:oval,color:red]
+
+Product Strategy & Roadmap Agent[shape:oval,color: purple]
+AB Testing & Experimentation Agent[shape:oval,color: purple]
+User Feedback & Research Agent[shape:oval,color: purple]
+
+Technical Architecture Agent[shape:oval,color: yellow]
+Technical Product Management Agent[shape:oval,color: yellow]
+
+Operations Agent[shape:oval,color: red]
+Financial & Pricing Strategy Agent[shape:oval,color: red]
+
+Pitch Deck Agent[shape:oval,,color: black]
+Due Diligence Agent[shape:oval,,color: black]
+
+}
+
+User > Interactor-Agent: User Interaction
+Interactor-Agent > Task-Pool: adds tasks in Task Pool
+
+CMO > Task-Pool : Takes marketing task from task pool
+CMO > Swarm: Using Orchestrator Node completes the job
+
+HeadOfProduct > Task-Pool : Takes product task from task pool
+HeadOfProduct > Swarm: Using Orchestrator Node completes the job
+
+CTO > Task-Pool : Takes technical task from task pool
+CTO > Swarm: Using Orchestrator Node completes the job
+
+COO > Task-Pool : Takes operations/finance task from task pool
+COO > Swarm: Using Orchestrator Node completes the job
+
+Fundraising > Task-Pool : Takes fundraising task from task pool
+Fundraising > Swarm: Using Orchestrator Node completes the job
+
+CMO > Interactor-Agent: Response or ask user for more clearification
+CTO > Interactor-Agent: Response or ask user for more clearification
+COO > Interactor-Agent: Response or ask user for more clearification
+Fundraising > Interactor-Agent: Response or ask user for more clearification
+HeadOfProduct > Interactor-Agent: Response or ask user for more clearification

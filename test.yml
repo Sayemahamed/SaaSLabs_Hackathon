@@ -1,0 +1,130 @@
+version: '3.8'
+
+services:
+
+  # BackEnd
+  backend:
+    build:
+      context: ./Backend/API
+      dockerfile: Dockerfile.FastAPI
+    ports:
+      - "8106:8000"
+    volumes:
+      - ./Backend/API:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
+    env_file:
+      - .env
+
+  # FrontEnd
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile.React
+    ports:
+      - "8105:5173"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    depends_on:
+      backend:
+        condition: service_healthy
+    env_file:
+      - .env
+
+  # Storage (Database)
+  db:
+    image: timescale/timescaledb-ha:pg17
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/home/postgres/pgdata/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+
+  # Storage-services (using the Database)
+  vectorizer-worker:
+    image: timescale/pgai-vectorizer-worker:latest
+    command: [ "--poll-interval", "5s", "--log-level", "INFO" ]
+    depends_on:
+      db:
+        condition: service_healthy
+
+
+  # Backend-services (using Redis/Backend)
+  celery:
+    build:
+      context: ./Backend/Celery
+      dockerfile: Dockerfile.celery
+    volumes:
+      - ./Backend/Celery:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+
+  flower:
+    build:
+      context: ./Backend/Celery
+      dockerfile: Dockerfile.flower
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./Backend/Celery:/app
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - .env
+
+  # Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      prometheus:
+        condition: service_started
+    env_file:
+      - ./Grafana/.env
+
+volumes:
+  data:
