@@ -5,12 +5,10 @@ from contextlib import asynccontextmanager
 from API.config import settings  # Import settings for potential use
 from API.db import init_db
 from API.middlewares import LoggingMiddleware
-from API.routes import auth_router, user_router
+from API.routes import auth_router, user_router,chat_router
 from fastapi import FastAPI
 from API.agent import get_agent
 from fastapi.middleware.cors import CORSMiddleware
-from langgraph.checkpoint.postgres import PostgresSaver
-# Configure logging (optional but good practice)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -73,10 +71,10 @@ app = FastAPI(lifespan=lifespan)
 # Add logging middleware
 
 app = FastAPI(
-    title="Price Pilot",
+    title="SaaS labs",
     lifespan=lifespan,
     version=API_VERSION,
-    description="An AI-Powered E-Commerce Procurement Assistant",
+    description="",
 )
 
 # --- Middleware ---
@@ -98,7 +96,7 @@ api_prefix = f"/{API_VERSION}"
 
 app.include_router(user_router, prefix=f"{api_prefix}/user", tags=["User"])
 app.include_router(auth_router, prefix=f"{api_prefix}/auth", tags=["Authentication"])
-
+app.include_router(chat_router, prefix=f"{api_prefix}/chat", tags=["Chat"])
 
 # Root endpoint (optional)
 @app.get("/", tags=["Root"])
